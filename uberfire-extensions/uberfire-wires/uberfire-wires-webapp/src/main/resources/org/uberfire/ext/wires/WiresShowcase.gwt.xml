@@ -48,6 +48,8 @@
 
   <inherits name="org.uberfire.ext.plugin.RuntimePluginClient"/>
   <inherits name="org.uberfire.ext.apps.UberfireAppsClient"/>
+  <inherits name="org.uberfire.ext.widgets.core.UberfireWidgetsCore"/>
+  <inherits name='org.uberfire.ext.services.UberfireWidgetsServicesAPI'/>
 
   <!-- Specify the application specific style sheet. -->
   <set-property name="user.agent" value="safari"/>

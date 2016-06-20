@@ -17,12 +17,14 @@ package org.uberfire.ext.widgets.core.client;
 
 import org.jboss.errai.ioc.client.api.AfterInitialization;
 import org.jboss.errai.ioc.client.api.EntryPoint;
+import org.jboss.errai.ui.shared.api.annotations.Bundle;
 import org.uberfire.ext.widgets.core.client.resources.TreeNavigatorResources;
 import org.uberfire.ext.widgets.core.client.resources.WizardResources;
 
 /**
  * Bootstrap widgets-core
  */
+@Bundle( "resources/i18n/Constants.properties" )
 @EntryPoint
 public class CoreEntryPoint {
 
