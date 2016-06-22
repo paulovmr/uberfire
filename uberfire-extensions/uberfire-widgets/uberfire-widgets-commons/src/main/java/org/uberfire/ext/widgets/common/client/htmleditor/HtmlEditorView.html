@@ -1,0 +1,69 @@
+<!--
+  ~ Copyright 2016 Red Hat, Inc. and/or its affiliates.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<div class="ewrapper">
+    <div class="wysihtml-toolbar">
+
+        <div class="block">
+            <a id="boldbtn" class="editor-btn">bold</a>
+            <a id="italicbtn" class="editor-btn">italic</a>
+
+            <a id="colorbtn" class="editor-btn">color</a>
+            <span style="display:none" id="colorBtns">
+              <a class="color-btn" style="background-color: rgb(255,0,0)" data-value="rgb(255,0,0)">R</a>
+              <a class="color-btn" style="background-color: rgb(0,255,0)" data-value="rgb(0,255,0)">G</a>
+              <a class="color-btn" style="background-color: rgb(0,0,255)" data-value="rgb(0,0,255)">B</a>
+            </span>
+
+            <a id="bgcolorbtn" class="editor-btn">BG color</a>
+            <span style="display:none" id="bgColorBtns">
+              <a class="bg-color-btn" style="background-color: rgb(255,128,128)" data-value="rgb(255,128,128)">R</a>
+              <a class="bg-color-btn" style="background-color: rgb(128,255,128)" data-value="rgb(128,255,128)">G</a>
+              <a class="bg-color-btn" style="background-color: rgb(128,128,255)" data-value="rgb(128,128,255)">B</a>
+            </span>
+
+            &nbsp;
+            <a id="fontSizeSmaller" class="editor-btn">-</a>
+            <input type="text" style="width: 30px; border: none; text-align: right;" id="fontSize"/>
+            <a id="fontSizeRemove" class="editor-btn">x</a>
+            <a id="fontSizeBigger" class="editor-btn">+</a>
+            &nbsp;
+
+            <span style="display:none" id="tableBtns">
+              &nbsp;
+              <a id="addRowAbove" class="editor-btn">+⋀</a>
+              <a id="addRowBelow" class="editor-btn">+⋁</a>
+              <a id="addRowBefore" class="editor-btn">+&lt;</a>
+              <a id="addRowAfter" class="editor-btn">+&gt;</a>
+
+              &nbsp;
+              <a id="removeRow" class="editor-btn">-=</a>
+              <a id="removeCol" class="editor-btn">-||</a>
+
+              &nbsp;
+              <a id="merge" class="editor-btn">[&nbsp;]</a>
+            </span>
+
+            <a id="leftbtn" class="editor-btn">Left</a>
+            <a id="centerbtn" class="editor-btn">Center</a>
+            <a id="rightbtn" class="editor-btn">Right</a>
+
+        </div>
+    </div><!-- toolbar -->
+
+    <div data-field="html-editor" class="editable">
+    </div>
+</div>
