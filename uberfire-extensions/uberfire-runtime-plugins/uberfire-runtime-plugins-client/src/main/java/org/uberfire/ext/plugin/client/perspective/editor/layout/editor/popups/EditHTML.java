@@ -16,6 +16,7 @@
 package org.uberfire.ext.plugin.client.perspective.editor.layout.editor.popups;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Style;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyDownEvent;
 import com.google.gwt.event.dom.client.KeyDownHandler;
@@ -112,6 +113,8 @@ public class EditHTML
     }
 
     private void setupHTMLEditor() {
+        setWidth( "1010px" );
+
         String html = configContext.getComponentProperty( HTMLLayoutDragComponent.HTML_CODE_PARAMETER );
 
         if ( html == null || html.isEmpty() ) {

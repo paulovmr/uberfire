@@ -16,6 +16,7 @@
 
 package org.uberfire.ext.widgets.common.client.htmleditor;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
@@ -26,7 +27,7 @@ import org.jboss.errai.ui.shared.api.annotations.Templated;
 import org.uberfire.ext.widgets.common.client.common.Div;
 import org.uberfire.ext.widgets.common.client.resources.HtmlEditorResources;
 
-import static com.google.gwt.core.client.ScriptInjector.TOP_WINDOW;
+import static com.google.gwt.core.client.ScriptInjector.*;
 
 @Dependent
 @Templated
@@ -35,25 +36,32 @@ public class HtmlEditorView extends Composite
 
     private HtmlEditorPresenter presenter;
 
+    private boolean scriptsAreLoaded = false;
+
     @Inject
     @DataField("html-editor")
     Div htmlEditor;
-
-    public HtmlEditorView() {
-    }
 
     @Override
     public void init( final HtmlEditorPresenter presenter ) {
         this.presenter = presenter;
     }
 
+    @PostConstruct
+    public void initEditor() {
+    }
+
     @Override
     public void show() {
-        ScriptInjector.fromString( HtmlEditorResources.INSTANCE.wysihtml().getText() ).setWindow( TOP_WINDOW ).inject();
-        ScriptInjector.fromString( HtmlEditorResources.INSTANCE.wysihtmlAllCommands().getText() ).setWindow( TOP_WINDOW ).inject();
-        ScriptInjector.fromString( HtmlEditorResources.INSTANCE.wysihtmlTableEditing().getText() ).setWindow( TOP_WINDOW ).inject();
-        ScriptInjector.fromString( HtmlEditorResources.INSTANCE.parserRules().getText() ).setWindow( TOP_WINDOW ).inject();
-        ScriptInjector.fromString( HtmlEditorResources.INSTANCE.custom().getText() ).setWindow( TOP_WINDOW ).inject();
+        if ( !scriptsAreLoaded ) {
+            ScriptInjector.fromString( HtmlEditorResources.INSTANCE.wysihtml().getText() ).setWindow( TOP_WINDOW ).inject();
+            ScriptInjector.fromString( HtmlEditorResources.INSTANCE.wysihtmlAllCommands().getText() ).setWindow( TOP_WINDOW ).inject();
+            ScriptInjector.fromString( HtmlEditorResources.INSTANCE.wysihtmlTableEditing().getText() ).setWindow( TOP_WINDOW ).inject();
+            ScriptInjector.fromString( HtmlEditorResources.INSTANCE.wysihtmlToolbar().getText() ).setWindow( TOP_WINDOW ).inject();
+            ScriptInjector.fromString( HtmlEditorResources.INSTANCE.parserRules().getText() ).setWindow( TOP_WINDOW ).inject();
+            ScriptInjector.fromString( HtmlEditorResources.INSTANCE.custom().getText() ).setWindow( TOP_WINDOW ).inject();
+            scriptsAreLoaded = true;
+        }
     }
 
     @Override

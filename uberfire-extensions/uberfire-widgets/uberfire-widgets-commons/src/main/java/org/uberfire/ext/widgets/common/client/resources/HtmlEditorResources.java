@@ -39,7 +39,7 @@ public interface HtmlEditorResources extends ClientBundle {
     @Source({"js/wysihtml/wysihtml.toolbar.min.js"})
     TextResource wysihtmlToolbar();
 
-    @Source({"js/wysihtml/advanced_unwrap.js"})
+    @Source({"js/wysihtml/parser_rules/advanced_and_extended.js"})
     TextResource parserRules();
 
     @Source({"js/wysihtml/custom.js"})

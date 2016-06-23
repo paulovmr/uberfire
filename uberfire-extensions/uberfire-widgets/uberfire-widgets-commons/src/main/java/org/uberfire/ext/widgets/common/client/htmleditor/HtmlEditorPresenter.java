@@ -20,12 +20,15 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
+import com.google.gwt.user.client.ui.IsWidget;
 import org.uberfire.client.mvp.UberView;
 
 @Dependent
 public class HtmlEditorPresenter {
 
-    public interface View extends UberView<HtmlEditorPresenter> {
+    public interface View extends UberView<HtmlEditorPresenter>,
+                                  /* Added temporally due to compatibility with existing components */
+                                  IsWidget {
 
         void setContent( String content );
 

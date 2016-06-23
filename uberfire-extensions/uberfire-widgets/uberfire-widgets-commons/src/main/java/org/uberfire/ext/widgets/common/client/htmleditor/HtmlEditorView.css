@@ -1,19 +1,3 @@
-/*
- * Copyright 2016 Red Hat, Inc. and/or its affiliates.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 .wysiwyg-font-size-smaller {
     font-size: smaller;
 }
@@ -126,10 +110,6 @@
     text-align: left;
 }
 
-.wysiwyg-text-align-justify {
-    text-align: justify;
-}
-
 .wysiwyg-float-left {
     float: left;
     margin: 0 8px 8px 0;
@@ -148,75 +128,80 @@
     clear: left;
 }
 
-.ewrapper h2 {
+
+/* -------- */
+
+.editable h2 {
     margin-bottom: 0;
 }
 
-.ewrapper small {
+.editable small {
     display: block;
     margin-top: 40px;
     font-size: 9px;
 }
 
-.ewrapper small,
-.ewrapper small a {
+.editable small,
+.editable small a {
     color: #666;
 }
 
-.ewrapper a {
+.editable a {
     color: #000;
     text-decoration: underline;
     cursor: pointer;
 }
 
-.ewrapper #toolbar [data-wysihtml-action] {
-    float: right;
-}
-
-.ewrapper #toolbar,
-.ewrapper textarea {
-    padding: 5px;
+.editable #toolbar,
+.editable textarea {
+    width: 920px;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-.ewrapper textarea {
-    height: 280px;
-    border: 2px solid green;
-    font-family: Verdana;
-    font-size: 11px;
+.editable textarea {
+    border: 2px solid;
+    font-family: monospace;
 }
 
-.ewrapper textarea:focus {
+.editable textarea:focus {
     color: black;
     border: 2px solid black;
 }
 
-.wysihtml-command-active {
+.editable .wysihtml-command-active {
     font-weight: bold;
 }
 
-[data-wysihtml-dialog] {
+.editable [data-wysihtml-dialog],
+.editable [data-wysihtml-hiddentools] {
     margin: 5px 0 0;
     padding: 5px;
     border: 1px solid #666;
 }
 
-.ewrapper a[data-wysihtml-command-value="red"] {
+.editable a[data-wysihtml-command-value="red"] {
     color: red;
 }
 
-.ewrapper a[data-wysihtml-command-value="green"] {
+.editable a[data-wysihtml-command-value="green"] {
     color: green;
 }
 
-.ewrapper a[data-wysihtml-command-value="blue"] {
+.editable a[data-wysihtml-command-value="blue"] {
     color: blue;
 }
 
-.ewrapper code {
+.editable .wysihtml-editor,
+.editable .wysihtml-editor table td,
+.editable .wysihtml-editor table th {
+    outline: 1px dotted #abc;
+    padding: 5px;
+}
+
+.editable code {
     background: #ddd;
     padding: 10px;
     white-space: pre;
@@ -224,56 +209,95 @@
     margin: 1em 0;
 }
 
-.wysihtml-toolbar {
+.editable .toolbar {
     display: block;
     border-radius: 3px;
     border: 1px solid #fff;
-    margin-bottom: 10px;
+    margin-bottom: 9px;
+    line-height: 1em;
 }
-.wysihtml-toolbar a {
+
+.editable .toolbar a {
     display: inline-block;
-    height: 1.7em;
+    height: 1.5em;
     border-radius: 3px;
-    font-size: 11px;
-    line-height: 1.7em;
+    font-size: 14px;
+    line-height: 1.5em;
     text-decoration: none;
     background: #e1e1e1;
     border: 1px solid #ddd;
-    padding: 0 0.5em;
+    padding: 0 0.2em;
     margin: 1px 0;
 }
-.wysihtml-toolbar a.active  {
+
+.editable .toolbar a[data-wysihtml-command] {
+    width: 26px;
+}
+
+.editable .toolbar a[data-wysihtml-command],
+.editable .toolbar a[data-wysihtml-action]{
+    text-align: center;
+    height: 26px;
+    font-size: 16px;
+}
+
+.editable .toolbar a[data-wysihtml-command]:hover {
+    background: #c1c1c1;
+}
+
+.editable .toolbar a.wysihtml-command-active {
     background: #222;
     color: white;
 }
-.wysihtml-toolbar .block {
-    padding: 2px 3px;
+.editable .toolbar .block {
+    padding: 1px 1px;
     display: inline-block;
     background: #eee;
     border-radius: 3px;
-    margin: 2px 2px 2px 0;
+    margin: 0px 1px 1px 0;
 }
 
-.wysihtml-editor table td,
-.wysihtml-editor table th {
-    outline: 1px dotted #ddd;
-}
-.wysihtml-editor table .wysiwyg-tmp-selected-cell {
-    outline: 1px solid green;
+.editable .wysihtml-editor table td.wysiwyg-tmp-selected-cell,
+.editable .wysihtml-editor table th.wysiwyg-tmp-selected-cell {
+    outline: 2px solid green;
 }
 
-.wysihtml-toolbar .color-btn,
-.wysihtml-toolbar .bg-color-btn {
-    height: 1.7em;
-    width: 1.7em;
-    text-align: center;
-    border: 2px solid #ddd;
-    padding:0;
-    margin:0;
+.editable .editor-container-tag {
+    padding: 5px 10px;
+    position: absolute;
     color: white;
+    background: rgba(0,0,0,0.8);
+    width: 100px;
+    margin-left: -50px;
+    -webkit-transition: 0.1s left, 0.1s top;
 }
 
-.wysihtml-toolbar .color-btn.active,
-.wysihtml-toolbar .bg-color-btn.active  {
-    border: 2px solid #333;
+.editable .wrap {
+    max-width: 700px;
+    margin: 40px;
+}
+
+.editable .editable .wysihtml-uneditable-container {
+    outline: 1px dotted gray;
+    position: relative;
+}
+
+.editable .editable .wysihtml-uneditable-container-right {
+    float: right;
+    width: 50%;
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+
+.editable .editable .wysihtml-uneditable-container-left {
+    float: left;
+    width: 50%;
+    margin-right: 2em;
+    margin-bottom: 1em;
+}
+
+.editable .wysihtml-editor {
+    width: 920px;
+    height: 600px;
+    overflow-y: auto;
 }
