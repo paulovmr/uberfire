@@ -152,7 +152,7 @@
     cursor: pointer;
 }
 
-.editable #toolbar,
+.editable .toolbar,
 .editable textarea {
     width: 920px;
     -webkit-box-sizing: border-box;
@@ -241,7 +241,14 @@
     font-size: 16px;
 }
 
-.editable .toolbar a[data-wysihtml-command]:hover {
+.editable .toolbar .table-actions a[data-wysihtml-command] {
+    width: auto;
+    font-size: 12px;
+    padding: 2px 7px;
+}
+
+.editable .toolbar a[data-wysihtml-command]:hover,
+.editable .toolbar a[data-wysihtml-action]:hover{
     background: #c1c1c1;
 }
 

@@ -15,7 +15,7 @@
   -->
 
 <div class="editable">
-    <div id="toolbar" class="toolbar">
+    <div data-field="html-editor-toolbar" class="toolbar">
         <div class="block">
             <a data-wysihtml-command="bold" title="Bold (Ctrl+B)" href="javascript:;" unselectable="on"><i class="fa fa-bold" aria-hidden="true"></i></a>
             <a data-wysihtml-command="italic" title="Italic (Ctrl+I)" href="javascript:;" unselectable="on"><i class="fa fa-italic" aria-hidden="true"></i></a>
@@ -74,15 +74,15 @@
             <a data-wysihtml-action="change_view" title="Switch to HTML view" href="javascript:;" unselectable="on" class="">Switch view</a>
         </div>
 
-        <div data-wysihtml-hiddentools="table" style="display: none;">
+        <div class="table-actions" data-wysihtml-hiddentools="table" style="display: none;">
             Table options:
-            <a data-wysihtml-command="mergeTableCells" title="Merge cells" href="javascript:;" unselectable="on"><i class="fa fa-arrows" aria-hidden="true"></i></a>
-            <a data-wysihtml-command="addTableCells" title="Add row before" data-wysihtml-command-value="above" href="javascript:;" unselectable="on"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
-            <a data-wysihtml-command="addTableCells" title="Add row after" data-wysihtml-command-value="below" href="javascript:;" unselectable="on"><i class="fa fa-arrow-down" aria-hidden="true"></i></a>
-            <a data-wysihtml-command="addTableCells" title="Add column before" data-wysihtml-command-value="before" href="javascript:;" unselectable="on"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-            <a data-wysihtml-command="addTableCells" title="Add column after" data-wysihtml-command-value="after" href="javascript:;" unselectable="on"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-            <a data-wysihtml-command="deleteTableCells" title="Remove row" data-wysihtml-command-value="row" href="javascript:;" unselectable="on"><i class="fa fa-arrows-v" aria-hidden="true"></i></a>
-            <a data-wysihtml-command="deleteTableCells" title="Remove column" data-wysihtml-command-value="column" href="javascript:;" unselectable="on"><i class="fa fa-arrows-h" aria-hidden="true"></i></a>
+            <a data-wysihtml-command="mergeTableCells" title="Merge cells" href="javascript:;" unselectable="on">Merge cells</a>
+            <a data-wysihtml-command="addTableCells" title="Add row before" data-wysihtml-command-value="above" href="javascript:;" unselectable="on">Add row before</a>
+            <a data-wysihtml-command="addTableCells" title="Add row after" data-wysihtml-command-value="below" href="javascript:;" unselectable="on">Add row after</a>
+            <a data-wysihtml-command="addTableCells" title="Add column before" data-wysihtml-command-value="before" href="javascript:;" unselectable="on">Add column before</a>
+            <a data-wysihtml-command="addTableCells" title="Add column after" data-wysihtml-command-value="after" href="javascript:;" unselectable="on">Add column after</a>
+            <a data-wysihtml-command="deleteTableCells" title="Remove row" data-wysihtml-command-value="row" href="javascript:;" unselectable="on">Remove row</a>
+            <a data-wysihtml-command="deleteTableCells" title="Remove column" data-wysihtml-command-value="column" href="javascript:;" unselectable="on">Remove column</a>
         </div>
 
         <div data-wysihtml-dialog="fontSizeStyle" style="display: none;">
@@ -120,11 +120,11 @@
         </div>
         <div data-wysihtml-dialog="createTable" style="display: none;">
             Rows: <input type="text" data-wysihtml-dialog-field="rows">
-            Cols: <input type="text" data-wysihtml-dialog-field="cols">
+            Columns: <input type="text" data-wysihtml-dialog-field="cols">
             <a data-wysihtml-dialog-action="save">OK</a>&nbsp;<a data-wysihtml-dialog-action="cancel">Cancel</a>
         </div>
     </div><!-- toolbar -->
 
-    <div data-field="html-editor" id="editor" class="wysihtml-sandbox wysihtml-editor" contenteditable="true">
+    <div data-field="html-editor" class="wysihtml-sandbox wysihtml-editor" contenteditable="true">
     </div>
 </div>

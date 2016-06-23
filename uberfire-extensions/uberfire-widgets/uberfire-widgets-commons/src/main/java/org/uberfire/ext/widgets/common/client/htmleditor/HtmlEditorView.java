@@ -20,14 +20,10 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import com.google.gwt.core.client.ScriptInjector;
 import com.google.gwt.user.client.ui.Composite;
+import org.jboss.errai.common.client.dom.Div;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
-import org.uberfire.ext.widgets.common.client.common.Div;
-import org.uberfire.ext.widgets.common.client.resources.HtmlEditorResources;
-
-import static com.google.gwt.core.client.ScriptInjector.*;
 
 @Dependent
 @Templated
@@ -36,11 +32,23 @@ public class HtmlEditorView extends Composite
 
     private HtmlEditorPresenter presenter;
 
-    private boolean scriptsAreLoaded = false;
+    private HtmlEditorLibraryLoader libraryLoader;
 
     @Inject
     @DataField("html-editor")
     Div htmlEditor;
+
+    @Inject
+    @DataField("html-editor-toolbar")
+    Div toolbar;
+
+    @Inject
+    public HtmlEditorView( final HtmlEditorLibraryLoader libraryLoader ) {
+        super();
+        this.libraryLoader = libraryLoader;
+    }
+
+    private boolean editorInitialized = false;
 
     @Override
     public void init( final HtmlEditorPresenter presenter ) {
@@ -48,29 +56,40 @@ public class HtmlEditorView extends Composite
     }
 
     @PostConstruct
-    public void initEditor() {
+    public void postConstruct() {
+        libraryLoader.load();
     }
 
     @Override
     public void show() {
-        if ( !scriptsAreLoaded ) {
-            ScriptInjector.fromString( HtmlEditorResources.INSTANCE.wysihtml().getText() ).setWindow( TOP_WINDOW ).inject();
-            ScriptInjector.fromString( HtmlEditorResources.INSTANCE.wysihtmlAllCommands().getText() ).setWindow( TOP_WINDOW ).inject();
-            ScriptInjector.fromString( HtmlEditorResources.INSTANCE.wysihtmlTableEditing().getText() ).setWindow( TOP_WINDOW ).inject();
-            ScriptInjector.fromString( HtmlEditorResources.INSTANCE.wysihtmlToolbar().getText() ).setWindow( TOP_WINDOW ).inject();
-            ScriptInjector.fromString( HtmlEditorResources.INSTANCE.parserRules().getText() ).setWindow( TOP_WINDOW ).inject();
-            ScriptInjector.fromString( HtmlEditorResources.INSTANCE.custom().getText() ).setWindow( TOP_WINDOW ).inject();
-            scriptsAreLoaded = true;
+        if ( !editorInitialized ) {
+            final String identifier = String.valueOf( System.currentTimeMillis() );
+
+            final String editorId = "html-editor-" + identifier;
+            final String toolbarId = "html-editor-toolbar-" + identifier;
+
+            htmlEditor.setId( editorId );
+            toolbar.setId( toolbarId );
+
+            initEditor( editorId, toolbarId );
+            editorInitialized = true;
         }
     }
 
     @Override
     public void setContent( final String content ) {
-        htmlEditor.getElement().setInnerHTML( content );
+        htmlEditor.setInnerHTML( content );
     }
 
     @Override
     public String getContent() {
-        return htmlEditor.getElement().getInnerHTML();
+        return htmlEditor.getInnerHTML();
     }
+
+    public native void initEditor( String editorId, String toolbarId ) /*-{
+        var editor = new $wnd.wysihtml.Editor( editorId, {
+            toolbar : $wnd.document.getElementById( toolbarId ),
+            parserRules : $wnd.wysihtmlParserRules
+        } );
+    }-*/;
 }
