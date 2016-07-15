@@ -67,6 +67,9 @@ public class LockManagerTest {
     @InjectMocks
     private LockManagerImpl lockManager;
 
+    @InjectMocks
+    private WidgetLockUIHandler widgetLockUIHandler;
+
     @Mock
     private LockDemandDetector lockDemandDetector;
 
@@ -133,7 +136,7 @@ public class LockManagerTest {
                                  titleProvider,
                                  reloadRunnable );
 
-        lockManager.init( target );
+        lockManager.init( target, widgetLockUIHandler );
 
         when( user.getIdentifier() ).thenReturn( "mockedUser" );
         when( lockDemandDetector.isLockRequired( any( Event.class ) ) ).thenReturn( true );
@@ -338,7 +341,7 @@ public class LockManagerTest {
     }
 
     private void simulateLockDemand() {
-        EventListener listener = lockManager.acquireLockOnDemand( widget.getElement() );
+        EventListener listener = widgetLockUIHandler.acquireLockOnDemand( widget.getElement() );
         listener.onBrowserEvent( event );
     }
 

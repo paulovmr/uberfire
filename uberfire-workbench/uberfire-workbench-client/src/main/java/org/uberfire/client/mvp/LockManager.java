@@ -26,13 +26,28 @@ public interface LockManager {
 
     /**
      * Retrieves the latest lock information for the provided target and fires
-     * events to update the corresponding UI.
+     * events to update the corresponding UI (widgets).
      *
      * @param lockTarget
      *            the {@link LockTarget} providing information about what to
      *            lock.
      */
     void init( LockTarget lockTarget );
+
+
+    /**
+     * Retrieves the latest lock information for the provided target and fires
+     * events to update the corresponding UI.
+     *
+     * @param lockTarget
+     *            the {@link LockTarget} providing information about what to
+     *            lock.
+     * @param lockUIHandler
+     *            the {@link LockUIHandler} providing methods to deal with the
+     *            UI.
+     */
+    void init( LockTarget lockTarget,
+               LockUIHandler lockUIHandler );
 
     /**
      * Notifies this lock manager that the lock target's widget got focus to
