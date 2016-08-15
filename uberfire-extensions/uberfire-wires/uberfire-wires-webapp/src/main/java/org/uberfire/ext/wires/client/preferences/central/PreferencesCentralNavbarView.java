@@ -31,7 +31,7 @@ import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
 import org.uberfire.client.mvp.PerspectiveManager;
 import org.uberfire.client.mvp.PlaceManager;
-import org.uberfire.ext.preferences.client.mvp.AbstractWorkbenchPreferencesActivity;
+import org.uberfire.ext.preferences.client.mvp.AbstractWorkbenchPreferenceScreenActivity;
 
 @Dependent
 @Templated
@@ -66,7 +66,7 @@ public class PreferencesCentralNavbarView implements IsElement,
     public void init( final PreferencesCentralNavbarPresenter presenter ) {
         this.presenter = presenter;
 
-        for ( AbstractWorkbenchPreferencesActivity preferencesActivity : presenter.getPreferencesActivitiesIterator() ) {
+        for ( AbstractWorkbenchPreferenceScreenActivity preferencesActivity : presenter.getPreferencesActivitiesIterator() ) {
             final ListItem li = (ListItem) Window.getDocument().createElement( "li" );
             li.setTextContent( preferencesActivity.getTitle() );
             li.setOnclick( new EventListener() {

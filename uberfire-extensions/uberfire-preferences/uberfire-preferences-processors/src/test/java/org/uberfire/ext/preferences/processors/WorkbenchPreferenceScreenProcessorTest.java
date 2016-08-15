@@ -30,13 +30,13 @@ import static org.junit.Assert.*;
 /**
  * Tests for Preferences related class generation
  */
-public class WorkbenchPreferencesProcessorTest extends AbstractProcessorTest {
+public class WorkbenchPreferenceScreenProcessorTest extends AbstractProcessorTest {
 
     Result result = new Result();
 
     @Override
     protected AbstractErrorAbsorbingProcessor getProcessorUnderTest() {
-        return new WorkbenchPreferencesProcessor( new GenerationCompleteCallback() {
+        return new WorkbenchPreferenceScreenProcessor( new GenerationCompleteCallback() {
             @Override
             public void generationComplete( final String code ) {
                 result.setActualCode( code );

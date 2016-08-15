@@ -21,10 +21,10 @@ import com.google.gwt.user.client.ui.SimplePanel;
 import org.uberfire.client.annotations.WorkbenchMenu;
 import org.uberfire.client.annotations.WorkbenchPartTitle;
 import org.uberfire.client.annotations.WorkbenchPartView;
-import org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences;
+import org.uberfire.ext.preferences.client.annotations.mvp.WorkbenchPreferenceScreen;
 import org.uberfire.workbench.model.menu.Menus;
 
-@WorkbenchPreferences(identifier = "test9")
+@WorkbenchPreferenceScreen(identifier = "test9")
 public class WorkbenchPreferencesTest9 {
 
     @WorkbenchPartView

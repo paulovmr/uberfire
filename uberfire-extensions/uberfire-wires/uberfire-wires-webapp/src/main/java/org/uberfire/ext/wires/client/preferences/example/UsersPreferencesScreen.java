@@ -24,12 +24,12 @@ import javax.inject.Inject;
 import org.uberfire.client.annotations.WorkbenchPartTitle;
 import org.uberfire.client.annotations.WorkbenchPartView;
 import org.uberfire.ext.preferences.client.ioc.store.PreferenceStore;
-import org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences;
+import org.uberfire.ext.preferences.client.annotations.WorkbenchPreferenceScreen;
 import org.uberfire.ext.wires.client.preferences.form.PreferencesEditorFormPresenter;
 import org.uberfire.ext.wires.client.preferences.form.ViewMode;
 
 @Dependent
-@WorkbenchPreferences(identifier = UsersPreferencesScreen.IDENTIFIER)
+@WorkbenchPreferenceScreen(identifier = UsersPreferencesScreen.IDENTIFIER)
 public class UsersPreferencesScreen {
 
     public static final String IDENTIFIER = "UsersPreferencesScreen";

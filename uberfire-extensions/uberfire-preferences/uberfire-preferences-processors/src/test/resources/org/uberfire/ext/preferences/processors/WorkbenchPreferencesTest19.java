@@ -22,9 +22,9 @@ import com.google.gwt.user.client.ui.SimplePanel;
 import org.jboss.errai.ioc.client.api.ActivatedBy;
 import org.uberfire.client.annotations.WorkbenchPartTitle;
 import org.uberfire.client.annotations.WorkbenchPartView;
-import org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences;
+import org.uberfire.ext.preferences.client.annotations.mvp.WorkbenchPreferenceScreen;
 
-@WorkbenchPreferences(identifier = "test19")
+@WorkbenchPreferenceScreen(identifier = "test19")
 @ActivatedBy(TestBeanActivator.class)
 public class WorkbenchPreferencesTest19 {
 

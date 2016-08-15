@@ -20,9 +20,9 @@ import org.uberfire.client.annotations.WorkbenchMenu;
 import org.uberfire.client.annotations.WorkbenchPartTitle;
 import org.uberfire.client.annotations.WorkbenchPartView;
 import org.uberfire.client.mvp.UberView;
-import org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences;
+import org.uberfire.ext.preferences.client.annotations.mvp.WorkbenchPreferenceScreen;
 
-@WorkbenchPreferences(identifier = "test10")
+@WorkbenchPreferenceScreen(identifier = "test10")
 public class WorkbenchPreferencesTest10 {
 
     @WorkbenchPartView

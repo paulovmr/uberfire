@@ -40,7 +40,7 @@
 
     <dependency>
       <groupId>org.uberfire</groupId>
-      <artifactId>uberfire-preferences-client</artifactId>
+      <artifactId>uberfire-preferences-client-api</artifactId>
       <scope>provided</scope>
     </dependency>
 

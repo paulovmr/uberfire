@@ -35,11 +35,12 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.uberfire.annotations.processors.GeneratorUtils;
 import org.uberfire.annotations.processors.exceptions.GenerationException;
+import org.uberfire.ext.preferences.client.annotations.WorkbenchPreferenceScreen;
 
 /**
- * A source code generator for Activities
+ * A source code generator for {@link WorkbenchPreferenceScreen}.
  */
-public class PreferencesActivityGenerator extends AbstractGenerator {
+public class WorkbenchPreferenceScreenActivityGenerator extends AbstractGenerator {
 
     @Override
     public StringBuffer generate( final String packageName,
@@ -55,7 +56,7 @@ public class PreferencesActivityGenerator extends AbstractGenerator {
 
         //Extract required information
         final TypeElement classElement = (TypeElement) element;
-        final String annotationName = WorkbenchPreferencesProcessor.WORKBENCH_PREFERENCES;
+        final String annotationName = WorkbenchPreferenceScreenProcessor.WORKBENCH_PREFERENCES;
 
         String identifier = null;
         Integer preferredHeight = null;
@@ -254,7 +255,7 @@ public class PreferencesActivityGenerator extends AbstractGenerator {
         final StringWriter sw = new StringWriter();
         final BufferedWriter bw = new BufferedWriter( sw );
         try {
-            final Template template = config.getTemplate( "activityPreferences.ftl" );
+            final Template template = config.getTemplate( "workbenchPreferenceScreenActivity.ftl" );
             template.process( root,
                               bw );
         } catch ( IOException ioe ) {

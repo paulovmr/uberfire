@@ -19,10 +19,10 @@ package org.uberfire.ext.preferences.processors;
 import com.google.gwt.user.client.ui.IsWidget;
 import org.uberfire.client.annotations.WorkbenchPartTitle;
 import org.uberfire.client.annotations.WorkbenchPartView;
-import org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences;
+import org.uberfire.ext.preferences.client.annotations.mvp.WorkbenchPreferenceScreen;
 import org.uberfire.client.annotations.WorkbenchToolBar;
 
-@WorkbenchPreferences(identifier = "test15")
+@WorkbenchPreferenceScreen(identifier = "test15")
 public class WorkbenchPreferencesTest15 {
 
     @WorkbenchPartView

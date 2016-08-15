@@ -19,9 +19,9 @@ package org.uberfire.ext.preferences.processors;
 import org.jboss.errai.common.client.api.IsElement;
 import org.uberfire.client.annotations.WorkbenchPartTitle;
 import org.uberfire.client.annotations.WorkbenchPartView;
-import org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences;
+import org.uberfire.ext.preferences.client.annotations.mvp.WorkbenchPreferenceScreen;
 
-@WorkbenchPreferences(identifier = "test29")
+@WorkbenchPreferenceScreen(identifier = "test29")
 public class WorkbenchPreferencesTest29 {
 
     @WorkbenchPartView

@@ -19,10 +19,10 @@ package org.uberfire.ext.preferences.processors;
 import org.uberfire.client.annotations.WorkbenchPartTitle;
 import org.uberfire.client.annotations.WorkbenchPartView;
 import org.uberfire.client.mvp.UberView;
-import org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences;
+import org.uberfire.ext.preferences.client.annotations.mvp.WorkbenchPreferenceScreen;
 import org.uberfire.lifecycle.OnStartup;
 
-@WorkbenchPreferences(identifier = "test11")
+@WorkbenchPreferenceScreen(identifier = "test11")
 public class WorkbenchPreferencesTest11 {
 
     @WorkbenchPartView

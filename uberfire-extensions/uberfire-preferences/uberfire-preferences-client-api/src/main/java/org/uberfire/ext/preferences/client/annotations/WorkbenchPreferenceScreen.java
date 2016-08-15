@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.uberfire.ext.preferences.client.mvp;
+package org.uberfire.ext.preferences.client.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -26,7 +26,7 @@ import java.lang.annotation.Target;
  * Classes annotated with this are considered WorkbenchParts that display some form of non-editable (but possibly still
  * interactive) content, and should define a configuration screen of some sort.
  * <p/>
- * All classes annotated with {@code @WorkbenchConfigurationScreen} must have a declared or inherited method annotated
+ * All classes annotated with {@code @WorkbenchPreferenceScreen} must have a declared or inherited method annotated
  * with {@code @WorkbenchPartTitle}.
  * <p/>
  * There are two options for providing the configuration screen's view:
@@ -54,12 +54,14 @@ import java.lang.annotation.Target;
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.TYPE })
-public @interface WorkbenchPreferences {
+public @interface WorkbenchPreferenceScreen {
 
     /**
      * Identifier that should be unique within application.
      */
     String identifier();
+
+    Class<?> preference() default void.class;
 
     /**
      * Defines the preferred height. Preferred means that this Height will be used only if this configuration screen

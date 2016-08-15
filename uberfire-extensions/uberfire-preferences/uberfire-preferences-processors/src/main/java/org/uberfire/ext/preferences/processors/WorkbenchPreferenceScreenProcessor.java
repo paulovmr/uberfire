@@ -35,21 +35,21 @@ import org.uberfire.annotations.processors.GenerationCompleteCallback;
 import org.uberfire.annotations.processors.exceptions.GenerationException;
 
 /**
- * Processor for {@code WorkbenchPreferences} and related annotations
+ * Processor for {@code WorkbenchPreferenceScreen} and related annotations
  */
-@SupportedAnnotationTypes(WorkbenchPreferencesProcessor.WORKBENCH_PREFERENCES)
+@SupportedAnnotationTypes(WorkbenchPreferenceScreenProcessor.WORKBENCH_PREFERENCES)
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
-public class WorkbenchPreferencesProcessor extends AbstractErrorAbsorbingProcessor {
+public class WorkbenchPreferenceScreenProcessor extends AbstractErrorAbsorbingProcessor {
 
-    public static final String WORKBENCH_PREFERENCES = "org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences";
+    public static final String WORKBENCH_PREFERENCES = "org.uberfire.ext.preferences.client.mvp.WorkbenchPreferenceScreen";
 
-    private final PreferencesActivityGenerator activityGenerator;
+    private final WorkbenchPreferenceScreenActivityGenerator activityGenerator;
     private GenerationCompleteCallback callback = null;
 
-    public WorkbenchPreferencesProcessor() {
-        PreferencesActivityGenerator ag = null;
+    public WorkbenchPreferenceScreenProcessor() {
+        WorkbenchPreferenceScreenActivityGenerator ag = null;
         try {
-            ag = new PreferencesActivityGenerator();
+            ag = new WorkbenchPreferenceScreenActivityGenerator();
         } catch (Throwable t) {
             rememberInitializationError(t);
         }
@@ -57,7 +57,7 @@ public class WorkbenchPreferencesProcessor extends AbstractErrorAbsorbingProcess
     }
 
     //Constructor for tests only, to prevent code being written to file. The generated code will be sent to the call-back
-    WorkbenchPreferencesProcessor( final GenerationCompleteCallback callback ) {
+    WorkbenchPreferenceScreenProcessor( final GenerationCompleteCallback callback ) {
         this();
         this.callback = callback;
         System.out.println( "GenerationCompleteCallback has been provided. Generated source code will not be compiled and hence classes will not be available." );

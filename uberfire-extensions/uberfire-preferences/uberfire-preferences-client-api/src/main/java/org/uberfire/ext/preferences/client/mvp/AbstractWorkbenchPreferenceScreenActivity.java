@@ -13,16 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.uberfire.ext.preferences.client.mvp;
 
 import org.uberfire.client.mvp.AbstractWorkbenchActivity;
 import org.uberfire.client.mvp.PlaceManager;
+import org.uberfire.ext.preferences.client.annotations.WorkbenchPreferenceScreen;
 import org.uberfire.security.ResourceType;
 
 /**
  * Implementation of behaviour common to all workbench preferences activities. Concrete implementations are typically
- * generated from classes annotated with {@link WorkbenchPreferences}, but it is permissible for applications to extend this
- * class directly instead of using the {@code @WorkbenchPreferences} annotation.
+ * generated from classes annotated with {@link WorkbenchPreferenceScreen}, but it is permissible for applications to extend this
+ * class directly instead of using the {@code @WorkbenchPreferenceScreen} annotation.
  * <p/>
  * When implementing a Preferences screen by extending this class, you must follow three rules:
  * <ol>
@@ -32,7 +34,7 @@ import org.uberfire.security.ResourceType;
  * the super constructor.
  * </ol>
  */
-public abstract class AbstractWorkbenchPreferencesActivity extends AbstractWorkbenchActivity implements WorkbenchPreferencesActivity {
+public abstract class AbstractWorkbenchPreferenceScreenActivity extends AbstractWorkbenchActivity implements WorkbenchPreferenceScreenActivity {
 
     @Override
     public ResourceType getResourceType() {
@@ -47,7 +49,7 @@ public abstract class AbstractWorkbenchPreferencesActivity extends AbstractWorkb
      * constructor with {@code @Inject}.
      * @param placeManager The PlaceManager in force for the current application. Must not be null.
      */
-    public AbstractWorkbenchPreferencesActivity( final PlaceManager placeManager ) {
+    public AbstractWorkbenchPreferenceScreenActivity( final PlaceManager placeManager ) {
         super( placeManager );
     }
 

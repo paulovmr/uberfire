@@ -28,6 +28,7 @@ import org.uberfire.client.mvp.ActivityManager;
 import org.uberfire.client.mvp.PlaceManager;
 import org.uberfire.client.workbench.widgets.menu.WorkbenchMenuBarPresenter;
 import org.uberfire.ext.preferences.client.ioc.store.PreferenceStore;
+import org.uberfire.ext.wires.client.preferences.bean.MyPreference;
 import org.uberfire.ext.wires.client.preferences.central.PreferencesCentralPerspective;
 import org.uberfire.mvp.Command;
 import org.uberfire.mvp.impl.DefaultPlaceRequest;
@@ -53,6 +54,9 @@ public class ShowcaseEntryPoint {
 
     @Inject
     private PreferenceStore preferenceStore;
+
+    @Inject
+    private MyPreference myPreference;
 
     @AfterInitialization
     public void startApp() {
@@ -119,6 +123,13 @@ public class ShowcaseEntryPoint {
     private void setupGlobalPreferences() {
         preferenceStore.putIfAbsent( "date.format", "yyyy-MM-dd HH:mm" );
         preferenceStore.putIfAbsent( "connection.timeout", "1000" );
+
+        myPreference.load( myPreference1 -> {
+            myPreference1.setSimpleProperty( "test1" );
+            myPreference1.getMyInnerPreference().setProperty( "oi" );
+            myPreference1.getMyInheritedInnerPreference().setProperty( "oi" );
+            myPreference1.save( parameter -> {} );
+        }, parameter -> {} );
     }
 
     // Fade out the "Loading application" pop-up

@@ -13,14 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.uberfire.ext.preferences.client.mvp;
 
-import org.uberfire.client.mvp.WorkbenchActivity;
+package org.uberfire.ext.preferences.client.annotations;
 
-/**
- * An Preferences screen is an activity that is expected to provide the end user some means of
- * editing and saving preferences.
- */
-public interface WorkbenchPreferencesActivity extends WorkbenchActivity {
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ ElementType.TYPE })
+public @interface WorkbenchPreference {
+
+    boolean root() default false;
 }

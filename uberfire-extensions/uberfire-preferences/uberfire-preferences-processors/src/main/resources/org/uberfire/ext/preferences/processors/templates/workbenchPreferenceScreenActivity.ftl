@@ -38,7 +38,7 @@ import org.uberfire.client.mvp.UberElement;
 import org.jboss.errai.common.client.ui.ElementWrapperWidget;
 </#if>
 import javax.inject.Named;
-import org.uberfire.ext.preferences.client.mvp.AbstractWorkbenchPreferencesActivity;
+import org.uberfire.ext.preferences.client.mvp.AbstractWorkbenchPreferenceScreenActivity;
 import org.uberfire.client.mvp.PlaceManager;
 
 <#if getDefaultPositionMethodName??>
@@ -62,7 +62,7 @@ import org.jboss.errai.ioc.client.api.ActivatedBy;
 
 </#if>
 @Dependent
-@Generated("org.uberfire.ext.preferences.processors.WorkbenchPreferencesProcessor")
+@Generated("org.uberfire.ext.preferences.processors.WorkbenchPreferenceScreenProcessor")
 @Named("${identifier}")
 <#if beanActivatorClass??>
 @ActivatedBy(${beanActivatorClass}.class)
@@ -70,7 +70,7 @@ import org.jboss.errai.ioc.client.api.ActivatedBy;
 /*
  * WARNING! This class is generated. Do not modify.
  */
-public class ${className} extends AbstractWorkbenchPreferencesActivity {
+public class ${className} extends AbstractWorkbenchPreferenceScreenActivity {
 
     @Inject
     private ${realClassName} realPresenter;
