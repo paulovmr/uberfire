@@ -22,14 +22,19 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.ui.RootPanel;
+import org.jboss.errai.common.client.api.Caller;
 import org.jboss.errai.ioc.client.api.AfterInitialization;
 import org.jboss.errai.ioc.client.api.EntryPoint;
 import org.uberfire.client.mvp.ActivityManager;
 import org.uberfire.client.mvp.PlaceManager;
 import org.uberfire.client.workbench.widgets.menu.WorkbenchMenuBarPresenter;
-import org.uberfire.ext.preferences.client.ioc.store.PreferenceStore;
+import org.uberfire.ext.preferences.client.store.PreferenceStore;
+import org.uberfire.ext.preferences.shared.bean.PreferenceBeanServerStore;
 import org.uberfire.ext.wires.client.preferences.central.PreferencesCentralPerspective;
+import org.uberfire.ext.wires.shared.preferences.bean.MyPreference;
+import org.uberfire.ext.wires.shared.preferences.bean.MyService;
 import org.uberfire.mvp.Command;
+import org.uberfire.mvp.ParameterizedCommand;
 import org.uberfire.mvp.impl.DefaultPlaceRequest;
 import org.uberfire.workbench.model.menu.MenuPosition;
 import org.uberfire.workbench.model.menu.Menus;
@@ -53,6 +58,15 @@ public class ShowcaseEntryPoint {
 
     @Inject
     private PreferenceStore preferenceStore;
+
+    @Inject
+    private MyPreference myPreference;
+
+    @Inject
+    private Caller<MyService> myServiceCaller;
+
+    @Inject
+    private Caller<PreferenceBeanServerStore> preferenceBeanServerStoreCaller;
 
     @AfterInitialization
     public void startApp() {
@@ -119,6 +133,27 @@ public class ShowcaseEntryPoint {
     private void setupGlobalPreferences() {
         preferenceStore.putIfAbsent( "date.format", "yyyy-MM-dd HH:mm" );
         preferenceStore.putIfAbsent( "connection.timeout", "1000" );
+
+        /*myPreference.load( new ParameterizedCommand<MyPreference>() {
+            @Override
+            public void execute( final MyPreference myPreference ) {
+                myPreference.setText( "test1" );
+                myPreference.getMyInnerPreference().setText( "test2" );
+                myPreference.getMyInheritedPreference().setText( "test3" );
+                myPreference.getMyInheritedPreference().getMyInnerPreference2().setText( "test4" );
+                myPreference.getMyInheritedPreference().getMyInnerPreference2().getMyInheritedPreference2().setText( "test5" );
+                myPreference.save();
+            }
+        }, new ParameterizedCommand<Throwable>() {
+            @Override
+            public void execute( final Throwable parameter ) {
+                throw new RuntimeException( parameter );
+            }
+        } );*/
+
+        myServiceCaller.call().load();
+
+        preferenceBeanServerStoreCaller.call().buildHierarchyStructure();
     }
 
     // Fade out the "Loading application" pop-up

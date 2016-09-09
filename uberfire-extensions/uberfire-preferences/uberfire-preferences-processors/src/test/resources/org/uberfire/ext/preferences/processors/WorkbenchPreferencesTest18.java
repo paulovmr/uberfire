@@ -16,15 +16,9 @@
 
 package org.uberfire.ext.preferences.processors;
 
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.SimplePanel;
+import org.uberfire.ext.preferences.client.annotations.WorkbenchPreferenceScreen;
 
-import org.uberfire.client.annotations.WorkbenchPartTitle;
-import org.uberfire.client.annotations.WorkbenchPartTitleDecoration;
-import org.uberfire.client.annotations.WorkbenchPartView;
-import org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences;
-
-@WorkbenchPreferences(identifier = "test18")
+@WorkbenchPreferenceScreen(identifier = "test18")
 public class WorkbenchPreferencesTest18 extends WorkbenchPreferencesTest18Super {
 
 }

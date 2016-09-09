@@ -16,9 +16,9 @@
 
 package org.uberfire.ext.preferences.processors;
 
-import org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences;
+import org.uberfire.ext.preferences.client.annotations.WorkbenchPreferenceScreen;
 
-@WorkbenchPreferences(identifier = "test2")
+@WorkbenchPreferenceScreen(identifier = "test2")
 public class WorkbenchPreferencesTest2 {
 
 }

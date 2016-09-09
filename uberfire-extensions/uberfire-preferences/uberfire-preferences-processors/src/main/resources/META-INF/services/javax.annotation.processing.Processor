@@ -14,4 +14,5 @@
 # limitations under the License.
 #
 
+org.uberfire.ext.preferences.processors.WorkbenchPreferenceProcessor
 org.uberfire.ext.preferences.processors.WorkbenchPreferencesProcessor

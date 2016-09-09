@@ -21,9 +21,9 @@ import com.google.gwt.user.client.ui.SimplePanel;
 import org.uberfire.client.annotations.WorkbenchPartTitle;
 import org.uberfire.client.annotations.WorkbenchPartTitleDecoration;
 import org.uberfire.client.annotations.WorkbenchPartView;
-import org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences;
+import org.uberfire.ext.preferences.client.annotations.WorkbenchPreferenceScreen;
 
-@WorkbenchPreferences(identifier = "test17")
+@WorkbenchPreferenceScreen(identifier = "test17")
 public class WorkbenchPreferencesTest17 {
 
     @WorkbenchPartView

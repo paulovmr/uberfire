@@ -22,7 +22,7 @@ import org.uberfire.client.annotations.WorkbenchContext;
 import org.uberfire.client.annotations.WorkbenchPopup;
 import org.uberfire.client.annotations.WorkbenchScreen;
 import org.uberfire.client.annotations.WorkbenchSplashScreen;
-import org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences;
+import org.uberfire.ext.preferences.client.annotations.WorkbenchPreferenceScreen;
 
 /**
  * A non-functional class that exists only to support the UF-44 regression test.
@@ -33,7 +33,7 @@ import org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences;
 @WorkbenchPopup(identifier = "sample")
 @WorkbenchScreen(identifier = "sample")
 @WorkbenchSplashScreen(identifier = "sample")
-@WorkbenchPreferences(identifier = "sample")
+@WorkbenchPreferenceScreen(identifier = "sample")
 public class AnnotatedWithEverything {
 
 }

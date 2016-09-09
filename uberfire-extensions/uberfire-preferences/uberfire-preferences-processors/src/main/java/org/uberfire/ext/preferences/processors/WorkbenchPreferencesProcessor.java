@@ -41,7 +41,7 @@ import org.uberfire.annotations.processors.exceptions.GenerationException;
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class WorkbenchPreferencesProcessor extends AbstractErrorAbsorbingProcessor {
 
-    public static final String WORKBENCH_PREFERENCES = "org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences";
+    public static final String WORKBENCH_PREFERENCES = "org.uberfire.ext.preferences.client.annotations.WorkbenchPreferenceScreen";
 
     private final PreferencesActivityGenerator activityGenerator;
     private GenerationCompleteCallback callback = null;

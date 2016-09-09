@@ -20,9 +20,9 @@ import org.jboss.errai.common.client.api.IsElement;
 import org.uberfire.client.annotations.WorkbenchPartTitle;
 import org.uberfire.client.annotations.WorkbenchPartTitleDecoration;
 import org.uberfire.client.annotations.WorkbenchPartView;
-import org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences;
+import org.uberfire.ext.preferences.client.annotations.WorkbenchPreferenceScreen;
 
-@WorkbenchPreferences(identifier = "test32")
+@WorkbenchPreferenceScreen(identifier = "test32")
 public class WorkbenchPreferencesTest32 {
 
     @WorkbenchPartView

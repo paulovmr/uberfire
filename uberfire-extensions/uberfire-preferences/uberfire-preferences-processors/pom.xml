@@ -34,14 +34,12 @@
 
     <dependency>
       <groupId>org.uberfire</groupId>
-      <artifactId>uberfire-preferences-api</artifactId>
-      <scope>provided</scope>
+      <artifactId>uberfire-preferences-client-api</artifactId>
     </dependency>
 
     <dependency>
       <groupId>org.uberfire</groupId>
-      <artifactId>uberfire-preferences-client</artifactId>
-      <scope>provided</scope>
+      <artifactId>uberfire-preferences-api</artifactId>
     </dependency>
 
     <dependency>
@@ -67,9 +65,9 @@
     </dependency>
 
     <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-user</artifactId>
-      <scope>provided</scope>
+        <groupId>com.google.gwt</groupId>
+        <artifactId>gwt-user</artifactId>
+        <scope>provided</scope>
     </dependency>
 
     <dependency>

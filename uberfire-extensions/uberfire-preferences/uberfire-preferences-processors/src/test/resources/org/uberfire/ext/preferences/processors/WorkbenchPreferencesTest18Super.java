@@ -20,9 +20,7 @@ import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.SimplePanel;
 
 import org.uberfire.client.annotations.WorkbenchPartTitle;
-import org.uberfire.client.annotations.WorkbenchPartTitleDecoration;
 import org.uberfire.client.annotations.WorkbenchPartView;
-import org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences;
 import org.uberfire.lifecycle.OnOpen;
 
 public abstract class WorkbenchPreferencesTest18Super {

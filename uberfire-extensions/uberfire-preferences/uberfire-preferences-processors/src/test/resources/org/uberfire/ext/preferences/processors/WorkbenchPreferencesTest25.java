@@ -20,9 +20,9 @@ import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.SimplePanel;
 import org.uberfire.client.annotations.WorkbenchPartTitle;
 import org.uberfire.client.annotations.WorkbenchPartView;
-import org.uberfire.ext.preferences.client.mvp.WorkbenchPreferences;
+import org.uberfire.ext.preferences.client.annotations.WorkbenchPreferenceScreen;
 
-@WorkbenchPreferences(identifier = "test25", preferredWidth = -200)
+@WorkbenchPreferenceScreen(identifier = "test25", preferredWidth = -200)
 public class WorkbenchPreferencesTest25 extends SimplePanel {
 
     @WorkbenchPartView
